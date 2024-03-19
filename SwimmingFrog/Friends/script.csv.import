@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://Friends/script.en.translation" ]
+
+source_file="res://Friends/script.csv"
+dest_files=[ "res://Friends/script.en.translation" ]
+
+[params]
+
+compress=true
+delimiter=0
