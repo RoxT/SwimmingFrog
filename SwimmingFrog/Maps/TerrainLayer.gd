@@ -1,6 +1,6 @@
 extends TileMap
 
-const SEAWEED := preload("res://Seaweed.tscn")
+const SEAWEED := preload("res://Seaweed/Seaweed.tscn")
 const BOARD := Vector2(1920, 1080)
 var food := []
 

@@ -21,8 +21,8 @@ _global_script_class_icons={
 [application]
 
 config/name="SwimmingFrog"
-run/main_scene="res://Maps/Swamp.tscn"
-config/icon="res://seaweed.png"
+run/main_scene="res://Maps/Home.tscn"
+config/icon="res://Seaweed/seaweed.png"
 
 [autoload]
 

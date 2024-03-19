@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://HUD.gd" type="Script" id=1]
 
@@ -15,6 +15,12 @@ pressed = true
 
 [sub_resource type="ShortCut" id=8]
 shortcut = SubResource( 7 )
+
+[sub_resource type="InputEventAction" id=9]
+action = "ui_select"
+
+[sub_resource type="ShortCut" id=10]
+shortcut = SubResource( 9 )
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -127,6 +133,15 @@ margin_top = 304.0
 margin_right = 64.0
 margin_bottom = 336.0
 
+[node name="RebuildNest" type="Button" parent="."]
+visible = false
+margin_left = 16.0
+margin_top = 448.0
+margin_right = 232.0
+margin_bottom = 488.0
+shortcut = SubResource( 10 )
+text = "Rebuild Nest (space)"
+
 [connection signal="pressed" from="Ascend" to="." method="_on_Ascend_pressed"]
 [connection signal="pressed" from="Descend" to="." method="_on_Descend_pressed"]
 [connection signal="button_down" from="Up" to="." method="_on_Up_button_down"]
@@ -145,3 +160,4 @@ margin_bottom = 336.0
 [connection signal="button_up" from="UR" to="." method="_on_UR_button_up"]
 [connection signal="button_down" from="UL" to="." method="_on_UL_button_down"]
 [connection signal="button_up" from="UL" to="." method="_on_UL_button_up"]
+[connection signal="pressed" from="RebuildNest" to="." method="_on_RebuildNest_pressed"]

@@ -26,7 +26,9 @@ func _process(delta):
 		if last_velocity.length_squared() > 0.1:
 			velocity = last_velocity * entropy
 	else:
-		velocity = velocity.normalized()
+		velocity = last_velocity + (velocity * 0.6)
+		if velocity.length_squared() > 1:
+			velocity = velocity.normalized()
 		sprite.look_at(position+velocity)
 	last_velocity = velocity
 	

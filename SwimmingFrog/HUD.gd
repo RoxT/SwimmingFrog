@@ -6,6 +6,7 @@ signal direction_button_down(axis, strength)
 signal direction_button_up(axis)
 signal ascend_pressed
 signal descend_pressed
+signal rebuild_pressed
 const X := "x"
 const Y := "y"
 
@@ -38,8 +39,20 @@ func connect_buttons(node:Node):
 	errs.append( connect("direction_button_down", node, "_on_Direction_button_down") )
 	errs.append( connect("direction_button_up", node, "_on_Direction_button_up") )
 	errs.append( S.inventory.connect("changed", self, "refresh_inventory") )
+	errs.append( connect("rebuild_pressed", node, "_on_rebuild_pressed") )
 	for e in errs:
 		if e != OK: push_warning("Err connecting HUD: " + str(e))
+		
+
+func visit_nest(can_build:bool):
+	$RebuildNest.visible = can_build
+	
+func left_nest():
+	$RebuildNest.hide()
+
+func _on_RebuildNest_pressed():
+	emit_signal("rebuild_pressed")
+	$RebuildNest.hide()
 
 func _on_Ascend_pressed():
 	emit_signal("ascend_pressed")
@@ -102,3 +115,4 @@ func _on_UL_button_down():
 
 func _on_UL_button_up():
 	_diagonal_up()
+

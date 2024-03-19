@@ -8,6 +8,7 @@ var layer_i := -1
 onready var frog = $Frog
 onready var hud := $CanvasLayer
 onready var inventory := S.inventory
+var current_nest
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +16,11 @@ func _ready():
 		c.hide()
 	change_layer_to(2)
 	hud.refresh_inventory()
+	for n in get_tree().get_nodes_in_group("nests"):
+		var err = n.connect("visting_nest", self, "_on_nest_visited")
+		S.print_err(err, "Error connecting next")
+		err = n.connect("left_nest", self, "_on_left_nest")
+		S.print_err(err, "Error connecting next")
 
 func change_layer_to(new_layer:int):
 	if new_layer != layer_i and !get_layer(new_layer).is_rock_at(frog.position):
@@ -47,3 +53,15 @@ func _on_Direction_button_down(axis:String, strength:int):
 
 func _on_Direction_button_up(axis:String):
 	frog[axis] = 0
+
+func _on_nest_visited(nest):
+	current_nest = nest
+	hud.visit_nest(S.inventory.seaweed >= nest.build_amount)
+	
+func _on_left_nest():
+	hud.left_nest()
+	current_nest = null
+	
+func _on_rebuild_pressed():
+	S.inventory.seaweed = S.inventory.seaweed - current_nest.build_amount
+	current_nest.rebuild()

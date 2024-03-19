@@ -23,3 +23,5 @@ func print_err(e:int, msg:String):
 		if e != OK: 
 			push_warning(msg + str(e))
 	
+func is_player(body:Node)->bool:
+	return body.name == "Frog"
