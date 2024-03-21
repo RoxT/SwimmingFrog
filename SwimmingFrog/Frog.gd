@@ -41,4 +41,5 @@ func _process(delta):
 	
 func move_to_layer(l:int):
 	layers = pow(2, l) as int
+	get_tree().call_group("follow", "move_to_layer", l)
 	

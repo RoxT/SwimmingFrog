@@ -189,18 +189,21 @@ tile_data = PoolIntArray( 0, 2, 1, 1, 2, 2, 2, 2, 2, 3, 2, 2, 4, 2, 2, 5, 2, 2, 
 [node name="Tadpole" type="AnimatedSprite" parent="Terrain/Top/Extras"]
 position = Vector2( 1945, 2062 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="Tadpole3" type="AnimatedSprite" parent="Terrain/Top/Extras"]
 position = Vector2( 2053, 2089 )
 rotation = -0.133417
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="Tadpole2" type="AnimatedSprite" parent="Terrain/Top/Extras"]
 position = Vector2( 2019, 2022 )
 rotation = -2.17694
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="Matron" type="Area2D" parent="Terrain/Top/Extras"]
